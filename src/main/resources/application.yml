@@ -1,16 +1,23 @@
 spring:
   application:
     name: akiri-api
+  sql:
+    init:
+      platform: mariadb
+      mode: always
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/Akiri
+    username: root
+    password:
   jpa:
     generate-ddl: false
     open-in-view: false
     hibernate:
       ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MariaDB53Dialect
-  datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/
-    username: root
-    password:
