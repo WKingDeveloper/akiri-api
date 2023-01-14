@@ -1,0 +1,85 @@
+type Query {
+    Products: [Product]
+    Product(id: ID!): Product
+}
+
+type Product @key(fields: "id") {
+
+    # 상품 ID
+    id: ID!
+
+    # 상품 판매 플랫폼
+    platform: String!
+
+    # 상품 판매 url
+    url: String!
+
+    # 상품 브랜드
+    brand: String!
+
+    # 상품 제목
+    title: String!
+
+    # 상품 이미지 url
+    imageUrl: String!
+
+    # 상품 카테고리
+    category: String!
+
+    # 통화 코드
+    currencyCode: CurrencyCode!
+
+    # 정상 가격
+    retailPrice: Decimal!
+
+    # 판매 가격
+    salePrice: Decimal!
+
+    # 할인율
+    discountRate: Int!
+
+    # 상품 상태
+    status: ProductState!
+
+    # 상품 생성일
+    createdAt: Instant
+
+    # 상품 수정일
+    updatedAt: Instant
+}
+
+# 통화 코드
+enum CurrencyCode {
+    # 한화
+    KRW
+
+    # 미국 달러
+    USD
+}
+
+# 상품 상태
+enum ProductState {
+    # 등록중
+    EDITING
+
+    # 판매중
+    SALE
+
+    # 품절
+    SOLD_OUT
+
+    # 판매종료
+    CLOSED
+
+    # 삭제
+    DELETED
+}
+
+# A type representing a formatted java.time.Instant
+scalar Instant
+
+# A type representing a formatted java.math.BigDecimal
+scalar Decimal
+
+# Long type
+scalar Long

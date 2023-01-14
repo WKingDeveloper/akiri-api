@@ -5,6 +5,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.14.RELEASE"
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
+	kotlin("plugin.jpa") version "1.6.21"
 	kotlin("kapt") version "1.6.21"
 }
 
@@ -17,6 +18,7 @@ repositories {
 }
 
 dependencies {
+	implementation("com.graphql-java:graphql-java-extended-scalars:17.0")
 	implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter:latest.release")
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.springframework.boot:spring-boot-starter-web")
@@ -45,4 +47,8 @@ allOpen { // 추가적으로 열어줄 allOpen
 	annotation("javax.persistence.Entity")
 	annotation("javax.persistence.MappedSuperclass")
 	annotation("javax.persistence.Embeddable")
+}
+
+noArg {
+	annotation("javax.persistence.Entity") // @Entity가 붙은 클래스에 한해서만 no arg 플러그인을 적용
 }
