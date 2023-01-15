@@ -18,6 +18,7 @@ repositories {
 }
 
 dependencies {
+	implementation("com.graphql-java-kickstart:playground-spring-boot-starter:11.0.0")
 	implementation("com.graphql-java:graphql-java-extended-scalars:17.0")
 	implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter:latest.release")
 	implementation("org.springframework.boot:spring-boot-starter")
