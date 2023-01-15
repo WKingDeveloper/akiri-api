@@ -1,6 +1,46 @@
 type Query {
-    Products: [Product]
-    Product(id: ID!): Product
+    products: [Product]
+    product(id: ID!): Product
+}
+
+type Mutation {
+    createProduct(param: ProductParamInput!): Product
+}
+
+input ProductParamInput {
+
+    # 상품 판매 플랫폼
+    platform: String!
+
+    # 상품 판매 url
+    url: String!
+
+    # 상품 브랜드
+    brand: String!
+
+    # 상품 제목
+    title: String!
+
+    # 상품 이미지 url
+    imageUrl: String!
+
+    # 상품 카테고리
+    category: String!
+
+    # 통화 코드
+    currencyCode: CurrencyCode
+
+    # 정상 가격
+    retailPrice: Decimal!
+
+    # 판매 가격
+    salePrice: Decimal!
+
+    # 할인율
+    discountRate: Int!
+
+    # 상품 상태
+    status: ProductState
 }
 
 type Product @key(fields: "id") {

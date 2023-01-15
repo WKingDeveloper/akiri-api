@@ -4,7 +4,6 @@ import com.netflix.graphql.dgs.DgsComponent
 import com.netflix.graphql.dgs.DgsData
 import com.netflix.graphql.dgs.DgsDataFetchingEnvironment
 import com.netflix.graphql.dgs.InputArgument
-import com.netflix.graphql.dgs.context.DgsContext
 import com.wkd.akiriapi.application.ProductProvider
 import com.wkd.akiriapi.model.product.Product
 
@@ -16,14 +15,14 @@ class ProductResolver(
         const val TYPE_NAME = "Query"
     }
 
-    @DgsData(parentType = TYPE_NAME, field = "Product")
+    @DgsData(parentType = TYPE_NAME, field = "product")
     fun product(@InputArgument id: Long, env: DgsDataFetchingEnvironment): Product {
         println("ProductResolver -> product")
-        return productProvider.get(1)
+        return productProvider.get(id)
     }
 
 
-    @DgsData(parentType = TYPE_NAME, field = "Products")
+    @DgsData(parentType = TYPE_NAME, field = "products")
     fun products(env: DgsDataFetchingEnvironment): List<Product> {
         println("ProductResolver -> products")
         return productProvider.getAll()
