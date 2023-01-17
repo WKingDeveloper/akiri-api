@@ -1,7 +1,7 @@
-package com.wkd.akiriapi.model.product.param
+package com.wkd.akiriapi.domain.model.product.param
 
-import com.wkd.akiriapi.model.product.CurrencyCode
-import com.wkd.akiriapi.model.product.ProductState
+import com.wkd.akiriapi.domain.model.product.CurrencyCode
+import com.wkd.akiriapi.domain.model.product.ProductState
 import java.math.BigDecimal
 
 data class ProductParam(

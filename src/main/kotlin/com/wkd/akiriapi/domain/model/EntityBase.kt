@@ -1,4 +1,4 @@
-package com.wkd.akiriapi.model
+package com.wkd.akiriapi.domain.model
 
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp

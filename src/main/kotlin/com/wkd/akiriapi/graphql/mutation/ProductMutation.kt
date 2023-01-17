@@ -5,7 +5,7 @@ import com.netflix.graphql.dgs.DgsDataFetchingEnvironment
 import com.netflix.graphql.dgs.DgsMutation
 import com.netflix.graphql.dgs.InputArgument
 import com.wkd.akiriapi.application.ProductAppService
-import com.wkd.akiriapi.model.product.param.ProductParam
+import com.wkd.akiriapi.domain.model.product.param.ProductParam
 
 @DgsComponent
 class ProductMutation(

@@ -1,4 +1,4 @@
-package com.wkd.akiriapi.model.product
+package com.wkd.akiriapi.domain.model.product
 
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository

@@ -1,4 +1,4 @@
-package com.wkd.akiriapi.model.product
+package com.wkd.akiriapi.domain.model.product
 
 enum class ProductState {
     EDITING,

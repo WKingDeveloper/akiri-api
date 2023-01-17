@@ -1,7 +1,7 @@
-package com.wkd.akiriapi.model.product
+package com.wkd.akiriapi.domain.model.product
 
-import com.wkd.akiriapi.model.EntityBase
-import com.wkd.akiriapi.model.product.param.ProductParam
+import com.wkd.akiriapi.domain.model.EntityBase
+import com.wkd.akiriapi.domain.model.product.param.ProductParam
 import java.io.Serializable
 import java.math.BigDecimal
 import javax.persistence.*
