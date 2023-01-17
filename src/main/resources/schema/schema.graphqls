@@ -1,10 +1,28 @@
 type Query {
-    products: [Product]
+    products(page: Int, size: Int): ProductConnection!
     product(id: ID!): Product
 }
 
 type Mutation {
     createProduct(param: ProductParamInput!): Product
+}
+
+type ProductConnection {
+    edges: [ProductEdge!]!
+    pageInfo: PageInfoEx!
+    totalCount: Long!
+}
+
+type ProductEdge {
+    cursor: String!
+    node: Product!
+}
+
+type PageInfoEx {
+    endCursor: String!
+    hasNextPage: Boolean!
+    hasPreviousPage: Boolean!
+    startCursor: String!
 }
 
 input ProductParamInput {

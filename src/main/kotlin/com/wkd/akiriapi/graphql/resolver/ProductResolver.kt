@@ -1,10 +1,12 @@
 package com.wkd.akiriapi.graphql.resolver
 
+import com.frientrip.product.graphql.relay.Connection
 import com.netflix.graphql.dgs.*
 import com.wkd.akiriapi.annotation.Logger
 import com.wkd.akiriapi.annotation.Logger.Companion.logger
 import com.wkd.akiriapi.application.ProductProvider
 import com.wkd.akiriapi.domain.model.product.Product
+import com.wkd.akiriapi.util.PagingTool
 
 @DgsComponent
 @Logger
@@ -20,11 +22,24 @@ class ProductResolver(
 
 
     @DgsQuery
-    fun products(env: DgsDataFetchingEnvironment): List<Product> {
+    fun products(
+        env: DgsDataFetchingEnvironment,
+        @InputArgument page: Int? = 1,
+        @InputArgument size: Int? = 10,
+    ): Connection<Product> {
         logger.info("ProductResolver -> products()")
-        return productProvider.getList()
-    }
+        val products = productProvider.getList(
+            page = page ?: 1,
+            size = size ?: 10
+        );
 
+        val productConnection = Connection(
+            products
+        ) {
+            PagingTool.convertToCursor(Product::class.java.simpleName, it.id)
+        }
+        return productConnection
+    }
 
     @DgsQuery
     fun id(env: DgsDataFetchingEnvironment) = env.getSource<Product>().id
