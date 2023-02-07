@@ -19,4 +19,12 @@ class ProductMutation(
         param
     )
 
+    @DgsMutation
+    fun createProductByUrl(
+        env: DgsDataFetchingEnvironment,
+        @InputArgument param: String
+    ) = service.createByUrl(
+        param
+    )
+
 }

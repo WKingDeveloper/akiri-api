@@ -5,6 +5,7 @@ type Query {
 
 type Mutation {
     createProduct(param: ProductParamInput!): Product
+    createProductByUrl(param: String!): Product
 }
 
 type ProductConnection {
