@@ -1,4 +1,5 @@
 type Query {
+    productsByFilter(filter: ProductFilter, page: Int, size: Int): ProductConnection!
     products(page: Int, size: Int): ProductConnection!
     product(id: ID!): Product
 }
@@ -24,6 +25,10 @@ type PageInfoEx {
     hasNextPage: Boolean!
     hasPreviousPage: Boolean!
     startCursor: String!
+}
+
+input ProductFilter {
+    category: String
 }
 
 input ProductParamInput {

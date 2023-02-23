@@ -1,14 +1,15 @@
 package com.wkd.akiriapi.domain.model.product
 
 enum class ProductCategory(
-    val value: Int
+    val index: Int,
+    val value: String
 ) {
-    MAN(0),
-    WOMAN(1),
-    HOME_ELECTRONICS(2),
-    HOME_FURNISHINGS(3),
-    UNISEX(4),
-    ETC(5);
+    MAN(0,"MAN"),
+    WOMAN(1,"WOMAN"),
+    HOME_ELECTRONICS(2,"HOME_ELECTRONICS"),
+    HOME_FURNISHINGS(3,"HOME_FURNISHINGS"),
+    UNISEX(4,"UNISEX"),
+    ETC(5,"ETC");
 
     companion object {
 
@@ -20,16 +21,17 @@ enum class ProductCategory(
 
         val categories = listOf(manCategory, womanCategory, homeElectronicsCategory, homeFurnishingsCategory, unisexCategory)
 
-        fun fromValue(value: String) :ProductCategory {
+        fun fromValueByIndex(value: String) :ProductCategory {
             var index = 5;
             for ((i, category) in categories.withIndex()){
                 if(value in category){
                     index = i
                 }
             }
-
-            return ProductCategory.values().first{ it.value == index }
+            return ProductCategory.values().first{ it.index == index }
         }
+
+        fun fromValueByValue(value: String): ProductCategory = ProductCategory.values().first { it.value == value }
 
 
 

@@ -6,6 +6,7 @@ import com.wkd.akiriapi.annotation.Logger
 import com.wkd.akiriapi.annotation.Logger.Companion.logger
 import com.wkd.akiriapi.application.ProductProvider
 import com.wkd.akiriapi.domain.model.product.Product
+import com.wkd.akiriapi.domain.model.product.ProductFilter
 import com.wkd.akiriapi.util.PagingTool
 
 @DgsComponent
@@ -25,12 +26,34 @@ class ProductResolver(
     fun products(
         env: DgsDataFetchingEnvironment,
         @InputArgument page: Int? = 1,
-        @InputArgument size: Int? = 10,
+        @InputArgument size: Int? = 50,
     ): Connection<Product> {
         logger.info("ProductResolver -> products()")
         val products = productProvider.getList(
             page = page ?: 1,
-            size = size ?: 10
+            size = size ?: 50
+        );
+
+        val productConnection = Connection(
+            products
+        ) {
+            PagingTool.convertToCursor(Product::class.java.simpleName, it.id)
+        }
+        return productConnection
+    }
+
+    @DgsQuery
+    fun productsByFilter(
+        env: DgsDataFetchingEnvironment,
+        @InputArgument filter: ProductFilter? = null,
+        @InputArgument page: Int? = 1,
+        @InputArgument size: Int? = 50,
+    ): Connection<Product> {
+        logger.info("ProductResolver -> productsByFilter()")
+        val products = productProvider.getListByFilter(
+            filter = filter,
+            page = page ?: 1,
+            size = size ?: 50
         );
 
         val productConnection = Connection(
