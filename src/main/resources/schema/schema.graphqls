@@ -82,8 +82,11 @@ type Product @key(fields: "id") {
     # 상품 이미지 url
     imageUrl: String!
 
-    # 상품 카테고리
+    # 상품 아키리 카테고리
     category: String!
+
+    # 상품 원본 카테고리
+    originCategory: String!
 
     # 통화 코드
     currencyCode: CurrencyCode!

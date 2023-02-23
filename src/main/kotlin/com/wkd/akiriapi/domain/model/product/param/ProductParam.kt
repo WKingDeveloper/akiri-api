@@ -1,6 +1,7 @@
 package com.wkd.akiriapi.domain.model.product.param
 
 import com.wkd.akiriapi.domain.model.product.CurrencyCode
+import com.wkd.akiriapi.domain.model.product.ProductCategory
 import com.wkd.akiriapi.domain.model.product.ProductState
 import java.math.BigDecimal
 
@@ -32,9 +33,14 @@ data class ProductParam(
     val imageUrl: String,
 
     /**
-     * 상품 카테고리
+     * 상품 아키리 카테고리
      */
-    var category: String,
+    var category: ProductCategory,
+
+    /**
+     * 상품 원본 카테고리
+     */
+    var originCategory: String,
 
     /**
      * 상품 통화 코드

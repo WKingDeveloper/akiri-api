@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `Product` (
-    `id` bigint(20) NOT NULL,
+    `id` bigint(20) NOT NULL AUTO_INCREMENT,
     `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `version` bigint(20) DEFAULT NULL,
@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `Product` (
     `title` varchar(128) NOT NULL,
     `imageUrl` varchar(2048) NOT NULL,
     `category` varchar(32) NOT NULL,
+    `originCategory` varchar(32) NOT NULL,
     `currencyCode` varchar(8) NOT NULL,
     `retailPrice` decimal(19,2) NOT NULL,
     `salePrice` decimal(19,2) NOT NULL,

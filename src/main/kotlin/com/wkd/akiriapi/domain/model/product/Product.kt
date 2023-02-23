@@ -51,10 +51,18 @@ class Product(
         protected set
 
     /**
-     * 상품 카테고리
+     * 상품 아키리 카테고리
      */
     @Column
-    var category: String = param.category
+    @Enumerated(value = EnumType.STRING)
+    var category: ProductCategory = param.category
+        protected set
+
+    /**
+     * 상품 원본 카테고리
+     */
+    @Column
+    var originCategory: String = param.originCategory
         protected set
 
     /**
