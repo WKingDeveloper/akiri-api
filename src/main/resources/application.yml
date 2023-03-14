@@ -24,3 +24,10 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MariaDB53Dialect
+  redis:
+    cluster:
+      nodes: redis-cluster-dev.internal.frientrip.com:6379
+  data:
+    redis:
+      repositories:
+        enabled: false

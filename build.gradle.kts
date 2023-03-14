@@ -18,6 +18,8 @@ repositories {
 }
 
 dependencies {
+	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+	implementation("org.springframework.boot:spring-boot-starter-data-redis")
 	implementation("org.jsoup:jsoup:1.15.3")
 	implementation("com.graphql-java-kickstart:playground-spring-boot-starter:11.0.0")
 	implementation("com.graphql-java:graphql-java-extended-scalars:17.0")
